@@ -1,0 +1,10 @@
+### Create Department
+POST http://localhost:8080/api/departments
+Content-Type: application/json
+
+{
+  "name": "Computer Science and Engineering"
+}
+
+### Get All Departments
+GET http://localhost:8080/api/departments
