@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.college.erp.dto.EmployeeResponse;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 import java.util.List;
@@ -51,7 +52,22 @@ public class EmployeeController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    // Update employee
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/{id}")
+    public ResponseEntity<EmployeeResponse> updateEmployee(
+            @PathVariable Long id,
+            @RequestBody EmployeeCreateRequest request) {
+
+        EmployeeResponse updatedEmployee =
+                employeeService.updateEmployee(id, request);
+
+        return ResponseEntity.ok(updatedEmployee);
+    }
+
     // Delete employee
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEmployee(
             @PathVariable Long id) {
