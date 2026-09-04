@@ -1,0 +1,151 @@
+/* ============================================================
+   PREMIUM NAVBAR STYLES
+   - Fixed Dark Glassmorphism Header
+============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height, 72px);
+  z-index: 1000;
+  background: rgba(5, 15, 30, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.navbar-inner {
+  width: min(1240px, 92%);
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Button */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  text-align: left;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+  font-size: 22px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text strong {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.brand-text span {
+  margin-top: 3px;
+  color: #00c9f5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 14px;
+  color: #9aa8bc;
+  background: transparent;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0px;
+  height: 2px;
+  background: #00d2fc;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 210, 252, 0.8);
+}
+
+/* Login Button in Navbar */
+.login-nav-button {
+  margin-left: 14px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.login-nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(135deg, #00d2fc, #1d4ed8);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .brand-text strong {
+    font-size: 12px;
+  }
+  .brand-text span {
+    font-size: 10px;
+  }
+  .nav-link {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  .login-nav-button {
+    margin-left: 4px;
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+}

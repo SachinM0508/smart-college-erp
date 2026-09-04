@@ -1,0 +1,116 @@
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS - Horizontal Panels
+============================================================ */
+
+/* Large Tablets & Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .college-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .map-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .horizontal-nav-arrow {
+    display: none; /* Rely on touch swipe / navbar on touch devices */
+  }
+}
+
+/* Tablets & Mobile (<= 768px) */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: #091a36;
+    flex-direction: column;
+    padding: 1.75rem 1.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link-btn {
+    font-size: 1.05rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .btn-nav-login {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .cinematic-college-title {
+    font-size: 1.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .about-college-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .intro-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .placement-container-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .horizontal-nav-arrow {
+    display: none;
+  }
+}
+
+/* Small Mobiles (<= 480px) */
+@media (max-width: 480px) {
+  .cinematic-college-title {
+    font-size: 1.55rem;
+  }
+
+  .login-card-wrapper {
+    padding: 2rem 1.25rem;
+  }
+
+  .departments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .placement-metric-card {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .student-photo-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+}

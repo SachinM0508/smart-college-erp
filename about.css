@@ -1,0 +1,551 @@
+/* ============================================================
+   ABOUT COLLEGE - HIGH-END UNIVERSITY GLASSMORPHISM STYLES
+   - Dark Navy, Royal Blue, Cyan & Subtle Violet/Indigo Accents
+   - Glassmorphism Cards with Soft Ambient Glows
+   - Responsive & Smooth Interactive Experience
+============================================================ */
+
+.about-page {
+  background: #070d18;
+  color: #f1f5f9;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.about-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding-top: calc(var(--nav-height, 72px) + 2rem);
+  padding-bottom: 5rem;
+  background: 
+    radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 35%, rgba(99, 102, 241, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(2, 132, 199, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 95%, rgba(129, 140, 248, 0.1) 0%, transparent 45%),
+    #070d18;
+  box-sizing: border-box;
+}
+
+/* Ambient Background Glow Elements */
+.about-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  top: 5%;
+  left: -100px;
+  background: rgba(14, 165, 233, 0.12);
+}
+
+.glow-2 {
+  width: 600px;
+  height: 600px;
+  top: 30%;
+  right: -150px;
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.glow-3 {
+  width: 550px;
+  height: 550px;
+  bottom: 5%;
+  left: 20%;
+  background: rgba(2, 132, 199, 0.1);
+}
+
+/* Inner Container */
+.about-inner-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max, 1280px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   SECTION HEADER
+============================================================ */
+
+.about-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.4rem 1.1rem;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d2fc;
+  box-shadow: 0 0 8px #00d2fc;
+}
+
+.about-heading-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.about-heading-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00d2fc, #6366f1);
+  border-radius: 3px;
+  margin: 1rem auto 0;
+  box-shadow: 0 0 15px rgba(0, 210, 252, 0.6);
+}
+
+/* ============================================================
+   HERO GRID: MAIN NARRATIVE + STATS SIDEBAR
+============================================================ */
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.95fr;
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+
+/* Base Glassmorphism Card */
+.about-glass-card {
+  background: rgba(13, 27, 54, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+}
+
+.about-glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 25px 60px rgba(2, 132, 199, 0.2);
+}
+
+/* Main Narrative Card */
+.about-narrative-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header-badge {
+  display: inline-block;
+  align-self: flex-start;
+  color: #38bdf8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.about-narrative-card h3 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.about-narrative-card > p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Pillar Boxes Grid */
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pillar-glass-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+.pillar-glass-box:hover {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+  transform: translateY(-2px);
+}
+
+.pillar-icon-box {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pillar-text strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.pillar-text p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* Stats Sidebar */
+.about-stats-sidebar {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(165deg, rgba(13, 27, 54, 0.85) 0%, rgba(9, 20, 42, 0.92) 100%);
+}
+
+.stats-header {
+  margin-bottom: 1.25rem;
+}
+
+.stats-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  color: #a5b4fc;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.stats-header h4 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
+.stats-header p {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.stats-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-metric-card {
+  padding: 1.1rem 0.75rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.stats-metric-card:hover {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.metric-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #00d2fc;
+  text-shadow: 0 0 15px rgba(0, 210, 252, 0.4);
+}
+
+.metric-label {
+  display: block;
+  margin-top: 4px;
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.stats-affiliations-box {
+  padding: 1rem 1.15rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.affiliation-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+.aff-bullet {
+  color: #00d2fc;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.affiliation-item strong {
+  color: #ffffff;
+}
+
+/* ============================================================
+   ALL DEPARTMENTS SECTION
+============================================================ */
+
+.about-departments-section {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.departments-header-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.departments-badge {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.departments-heading-title {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+}
+
+.departments-heading-subtitle {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* 10 Department Cards Grid */
+.departments-glass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 1.25rem;
+}
+
+.dept-glass-card {
+  background: rgba(13, 27, 54, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.dept-glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #00d2fc, #6366f1);
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
+.dept-glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 18px 45px rgba(2, 132, 199, 0.22);
+  background: rgba(15, 32, 65, 0.75);
+}
+
+.dept-glass-card:hover::before {
+  opacity: 1;
+}
+
+.dept-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.dept-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.dept-code-pill {
+  padding: 0.2rem 0.65rem;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  border-radius: 6px;
+  color: #a5b4fc;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.dept-index-label {
+  color: #64748b;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.dept-title-text {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 0.6rem;
+}
+
+.dept-desc-text {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  flex-grow: 1;
+  margin: 0 0 1rem;
+}
+
+.dept-card-footer {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dept-stats-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.stats-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00d2fc;
+  box-shadow: 0 0 6px #00d2fc;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+@media (max-width: 1024px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .departments-glass-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-narrative-card {
+    padding: 1.75rem;
+  }
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .departments-glass-grid {
+    grid-template-columns: 1fr;
+  }
+}
