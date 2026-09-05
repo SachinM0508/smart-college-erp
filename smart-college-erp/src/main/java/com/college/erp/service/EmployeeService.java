@@ -155,6 +155,72 @@ public class EmployeeService {
         return response;
     }
 
+    @Transactional
+    public EmployeeResponse updateEmployee(
+            Long id,
+            EmployeeCreateRequest request) {
+
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Employee not found"));
+
+        if (employeeRepository.existsByEmployeeIdAndIdNot(
+                request.getEmployeeId(), id)) {
+
+            throw new ResourceAlreadyExistsException(
+                    "Employee ID already exists");
+        }
+
+        if (employeeRepository.existsByAadharAndIdNot(
+                request.getAadhar(), id)) {
+
+            throw new ResourceAlreadyExistsException(
+                    "Aadhar already exists");
+        }
+
+        if (employeeRepository.existsByPanNumberAndIdNot(
+                request.getPanNumber(), id)) {
+
+            throw new ResourceAlreadyExistsException(
+                    "PAN number already exists");
+        }
+
+        Department department = departmentRepository.findById(request.getDepartmentId())
+                .orElseThrow(() ->
+                        new RuntimeException("Department not found"));
+
+        Designation designation = designationRepository.findById(request.getDesignationId())
+                .orElseThrow(() ->
+                        new RuntimeException("Designation not found"));
+
+        employee.setEmployeeId(request.getEmployeeId());
+        employee.setName(request.getName());
+        employee.setPhone(request.getPhone());
+        employee.setAddress(request.getAddress());
+        employee.setDateOfBirth(request.getDateOfBirth());
+        employee.setGender(request.getGender());
+        employee.setBloodGroup(request.getBloodGroup());
+        employee.setPhoto(request.getPhoto());
+        employee.setAadhar(request.getAadhar());
+        employee.setDepartment(department);
+        employee.setDesignation(designation);
+        employee.setEmployeeType(request.getEmployeeType());
+        employee.setJoiningDate(request.getJoiningDate());
+        employee.setStatus(request.getStatus());
+        employee.setQualification(request.getQualification());
+        employee.setExperience(request.getExperience());
+        employee.setBasicSalary(request.getBasicSalary());
+        employee.setPayGrade(request.getPayGrade());
+        employee.setBankAccountNumber(request.getBankAccountNumber());
+        employee.setIfscCode(request.getIfscCode());
+        employee.setPanNumber(request.getPanNumber());
+        employee.setSalaryMode(request.getSalaryMode());
+
+        Employee updatedEmployee = employeeRepository.save(employee);
+
+        return convertToResponse(updatedEmployee);
+    }
+
     public EmployeeResponse convertToResponse(Employee employee) {
 
         EmployeeResponse response = new EmployeeResponse();
