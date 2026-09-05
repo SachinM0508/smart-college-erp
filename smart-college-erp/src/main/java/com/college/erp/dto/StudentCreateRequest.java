@@ -1,79 +1,50 @@
-package com.college.erp.entity;
+package com.college.erp.dto;
 
-import jakarta.persistence.*;
+import com.college.erp.entity.BloodGroup;
+import com.college.erp.entity.Gender;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "students")
-public class Student {
+public class StudentCreateRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    // Student Identification
-    @Column(nullable = false, unique = true)
     private String studentId;
-
-    @Column(unique = true)
     private String apaarId;
-
-    @Column(unique = true)
     private String aadhar;
 
-    // Personal Information
-    @Column(nullable = false)
     private String name;
-
     private LocalDate dateOfBirth;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    @Enumerated(EnumType.STRING)
     private BloodGroup bloodGroup;
-
     private String photo;
 
-    // Contact Information
     private String phone;
-
     private String alternatePhone;
-
     private String address;
-
     private String city;
-
     private String state;
-
     private String pincode;
 
-    // Parent / Guardian Information
     private String fatherName;
-
     private String motherName;
-
     private String guardianName;
-
     private String guardianPhone;
-
     private String guardianOccupation;
 
-    // Login Account
-    @OneToOne
-    @JoinColumn(name = "user_id", unique = true)
-    private User user;
+    private String email;
+    private String password;
+    private String confirmPassword;
 
-    public Student() {
+    public StudentCreateRequest() {
     }
 
-    public Long getId() {
-        return id;
+    // Generate getters and setters for all fields
+
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getStudentId() {
@@ -228,11 +199,19 @@ public class Student {
         this.guardianOccupation = guardianOccupation;
     }
 
-    public User getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
