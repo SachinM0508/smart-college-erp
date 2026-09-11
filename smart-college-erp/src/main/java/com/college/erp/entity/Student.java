@@ -12,6 +12,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "student_group_id")
+    private StudentGroup studentGroup;
+
     // Student Identification
     @Column(nullable = false, unique = true)
     private String studentId;
@@ -234,5 +238,13 @@ public class Student {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public StudentGroup getStudentGroup() {
+        return studentGroup;
+    }
+
+    public void setStudentGroup(StudentGroup studentGroup) {
+        this.studentGroup = studentGroup;
     }
 }

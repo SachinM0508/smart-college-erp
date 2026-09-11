@@ -4,7 +4,9 @@ import com.college.erp.dto.StudentCreateRequest;
 import com.college.erp.dto.StudentResponse;
 import com.college.erp.entity.Role;
 import com.college.erp.entity.Student;
+import com.college.erp.entity.StudentGroup;
 import com.college.erp.entity.User;
+import com.college.erp.repository.StudentGroupRepository;
 import com.college.erp.repository.StudentRepository;
 import com.college.erp.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,15 +21,18 @@ public class StudentService {
     private final StudentRepository studentRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final StudentGroupRepository studentGroupRepository;
 
     public StudentService(
             StudentRepository studentRepository,
             UserRepository userRepository,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            StudentGroupRepository studentGroupRepository) {
 
         this.studentRepository = studentRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.studentGroupRepository = studentGroupRepository;
     }
 
     // Create student
@@ -93,6 +98,19 @@ public class StudentService {
         student.setGuardianName(request.getGuardianName());
         student.setGuardianPhone(request.getGuardianPhone());
         student.setGuardianOccupation(request.getGuardianOccupation());
+
+        // Assign Student Group
+        if (request.getStudentGroupId() != null) {
+
+            StudentGroup studentGroup = studentGroupRepository
+                    .findById(request.getStudentGroupId())
+                    .orElseThrow(() ->
+                            new RuntimeException("Student group not found"));
+
+            student.setStudentGroup(studentGroup);
+        }
+
+
 
         student.setUser(savedUser);
 
@@ -163,6 +181,17 @@ public class StudentService {
         student.setGuardianName(request.getGuardianName());
         student.setGuardianPhone(request.getGuardianPhone());
         student.setGuardianOccupation(request.getGuardianOccupation());
+
+        // Update Student Group
+        if (request.getStudentGroupId() != null) {
+
+            StudentGroup studentGroup = studentGroupRepository
+                    .findById(request.getStudentGroupId())
+                    .orElseThrow(() ->
+                            new RuntimeException("Student group not found"));
+
+            student.setStudentGroup(studentGroup);
+        }
 
         // Update login email/password
         User user = student.getUser();
@@ -247,6 +276,24 @@ public class StudentService {
             response.setRole(student.getUser().getRole().name());
         }
 
+        if (student.getStudentGroup() != null) {
+
+            StudentGroup studentGroup = student.getStudentGroup();
+
+            response.setStudentGroupId(studentGroup.getId());
+            response.setStudentGroupName(studentGroup.getGroupName());
+            response.setSectionName(studentGroup.getSection().getName());
+            response.setCourseName(studentGroup.getCourse().getCourseName());
+            response.setSemesterNumber(
+                    studentGroup.getSemester().getSemesterNumber()
+            );
+            response.setSemesterName(
+                    studentGroup.getSemester().getSemesterName()
+            );
+            response.setAcademicYear(
+                    studentGroup.getAcademicYear().getYear()
+            );
+        }
         return response;
     }
 }

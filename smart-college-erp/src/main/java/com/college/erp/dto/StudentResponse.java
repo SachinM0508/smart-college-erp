@@ -34,11 +34,17 @@ public class StudentResponse {
     private String email;
     private String role;
 
+    // Student Group information
+    private Long studentGroupId;
+    private String studentGroupName;
+    private String sectionName;
+    private String courseName;
+    private Integer semesterNumber;
+    private String semesterName;
+    private String academicYear;
+
     public StudentResponse() {
     }
-
-    // Generate getters and setters for all fields
-
 
     public Long getId() {
         return id;
@@ -214,5 +220,63 @@ public class StudentResponse {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    // Student Group getters and setters
+
+    public Long getStudentGroupId() {
+        return studentGroupId;
+    }
+
+    public void setStudentGroupId(Long studentGroupId) {
+        this.studentGroupId = studentGroupId;
+    }
+
+    public String getStudentGroupName() {
+        return studentGroupName;
+    }
+
+    public void setStudentGroupName(String studentGroupName) {
+        this.studentGroupName = studentGroupName;
+    }
+
+    public String getSectionName() {
+        return sectionName;
+    }
+
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Integer getSemesterNumber() {
+        return semesterNumber;
+    }
+
+    public void setSemesterNumber(Integer semesterNumber) {
+        this.semesterNumber = semesterNumber;
+    }
+
+    public String getSemesterName() {
+        return semesterName;
+    }
+
+    public void setSemesterName(String semesterName) {
+        this.semesterName = semesterName;
+    }
+
+    public String getAcademicYear() {
+        return academicYear;
+    }
+
+    public void setAcademicYear(String academicYear) {
+        this.academicYear = academicYear;
     }
 }

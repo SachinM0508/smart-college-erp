@@ -3,19 +3,25 @@ package com.college.erp.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student_groups")
-public class StudentGroup {
+@Table(
+        name = "subjects",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"course_id", "semester_id", "subject_code"})
+        }
+)
+public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String groupName;
+    private String subjectCode;
 
-    @ManyToOne
-    @JoinColumn(name = "section_id", nullable = false)
-    private Section section;
+    @Column(nullable = false)
+    private String subjectName;
+
+    private Integer credits;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
@@ -25,11 +31,7 @@ public class StudentGroup {
     @JoinColumn(name = "semester_id", nullable = false)
     private Semester semester;
 
-    @ManyToOne
-    @JoinColumn(name = "academic_year_id", nullable = false)
-    private AcademicYear academicYear;
-
-    public StudentGroup() {
+    public Subject() {
     }
 
     public Long getId() {
@@ -40,20 +42,28 @@ public class StudentGroup {
         this.id = id;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getSubjectCode() {
+        return subjectCode;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
     }
 
-    public Section getSection() {
-        return section;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setSection(Section section) {
-        this.section = section;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
+    public Integer getCredits() {
+        return credits;
+    }
+
+    public void setCredits(Integer credits) {
+        this.credits = credits;
     }
 
     public Course getCourse() {
@@ -70,13 +80,5 @@ public class StudentGroup {
 
     public void setSemester(Semester semester) {
         this.semester = semester;
-    }
-
-    public AcademicYear getAcademicYear() {
-        return academicYear;
-    }
-
-    public void setAcademicYear(AcademicYear academicYear) {
-        this.academicYear = academicYear;
     }
 }
