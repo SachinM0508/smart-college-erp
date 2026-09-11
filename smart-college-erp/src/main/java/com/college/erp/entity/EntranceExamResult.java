@@ -19,6 +19,7 @@ public class EntranceExamResult {
 
     private Integer examYear;
 
+    @Column(name = "exam_rank")
     private Integer rank;
 
     private Double score;

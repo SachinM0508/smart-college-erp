@@ -97,4 +97,10 @@ public class Admission {
     public void setAdmissionDate(LocalDate admissionDate) {
         this.admissionDate = admissionDate;
     }
+    public InstitutionType getInstitutionType() {
+        return institutionType;
+    }
+    public void setInstitutionType(InstitutionType institutionType) {
+        this.institutionType = institutionType;
+    }
 }
