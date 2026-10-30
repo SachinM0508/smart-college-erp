@@ -2,7 +2,6 @@ package com.college.erp.entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name = "student_groups")
 public class StudentGroup {
@@ -11,21 +10,24 @@ public class StudentGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String groupName;
+
+    @ManyToOne
+    @JoinColumn(name = "section_id", nullable = false)
+    private Section section;
+
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
-
-    @ManyToOne
-    @JoinColumn(name = "academic_year_id", nullable = false)
-    private AcademicYear academicYear;
 
     @ManyToOne
     @JoinColumn(name = "semester_id", nullable = false)
     private Semester semester;
 
     @ManyToOne
-    @JoinColumn(name = "section_id", nullable = false)
-    private Section section;
+    @JoinColumn(name = "academic_year_id", nullable = false)
+    private AcademicYear academicYear;
 
     public StudentGroup() {
     }
@@ -38,20 +40,28 @@ public class StudentGroup {
         this.id = id;
     }
 
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
     public Course getCourse() {
         return course;
     }
 
     public void setCourse(Course course) {
         this.course = course;
-    }
-
-    public AcademicYear getAcademicYear() {
-        return academicYear;
-    }
-
-    public void setAcademicYear(AcademicYear academicYear) {
-        this.academicYear = academicYear;
     }
 
     public Semester getSemester() {
@@ -62,11 +72,11 @@ public class StudentGroup {
         this.semester = semester;
     }
 
-    public Section getSection() {
-        return section;
+    public AcademicYear getAcademicYear() {
+        return academicYear;
     }
 
-    public void setSection(Section section) {
-        this.section = section;
+    public void setAcademicYear(AcademicYear academicYear) {
+        this.academicYear = academicYear;
     }
 }

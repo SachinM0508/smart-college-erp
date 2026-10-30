@@ -34,6 +34,8 @@ public class StudentCreateRequest {
     private String password;
     private String confirmPassword;
 
+    private Long studentGroupId;
+
     public StudentCreateRequest() {
     }
 
@@ -213,5 +215,12 @@ public class StudentCreateRequest {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public Long getStudentGroupId() {
+        return studentGroupId;
+    }
+    public void setStudentGroupId(Long studentGroupId) {
+        this.studentGroupId = studentGroupId;
     }
 }
